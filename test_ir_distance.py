@@ -30,24 +30,24 @@ def get_all_dists(pause_on_=False,pause_=0): # getting all data/distances from e
         list_of_dists.append([i[1],distance])  # e.g ["back", 30] ->(30cm)
     return list_of_dists
 
-def identify(): # making desicion based on ir sensors data / distances -> moving the robot in new position when he dedects  a opponent 
+def identify(): # making decision based on ir sensors data / distances -> moving the robot in new position when he dedects  a opponent 
     distances=get_all_dists()
     for i in distances:
         if i[1]<15:  
             if i[0]=="front":
-                test_platine.vorne(speed=100,loop_range=400) #attack
+                test_platine.vorne(speed=100,cm=25) #attack the enemy robot
                 return
             elif i[0]=="back":
-                test_platine.drehen(clock_wise=False, speed = 100, degrees=180) #attack
-                test_platine.vorne(speed=100,loop_range=400 ) 
+                test_platine.drehen(clock_wise=False, speed = 100, degrees=180) #rotate to enemy
+                test_platine.vorne(speed=100,cm=25) #attack the enemy robot
                 return
             elif i[0]=="left":
-                test_platine.drehen(clock_wise=False, speed = 100, degrees=90) #attack
-                test_platine.vorne(speed=100,loop_range=400) 
+                test_platine.drehen(clock_wise=False, speed = 100, degrees=90) #rotate to enemy
+                test_platine.vorne(speed=100,cm=25) #attack the enemy robot
                 return
             elif i[0]=="right":
-                test_platine.drehen(clock_wise=True, speed = 100, degrees=90) #attack
-                test_platine.vorne(speed=100,loop_range=400) 
+                test_platine.drehen(clock_wise=True, speed = 100, degrees=90) #rotate to enemy
+                test_platine.vorne(speed=100,cm=25) #attack the enemy robot
                 return
             return
 if __name__ == "__main__":    # only run when the file is direktly excecuted -> testing sensors

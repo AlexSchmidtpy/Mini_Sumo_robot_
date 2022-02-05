@@ -27,10 +27,10 @@ def check_all_gpios(): # creat list of all line sensors for main program (main_t
         check_pin_= check_pin(i)
         for j in all_gpios_high_or_low:
             if check_pin_[0] == j[0]  and 0 == check_pin_[1]:
-                all_gpios_high_or_low[all_gpios_high_or_low.index(j)][1] = 0
+                all_gpios_high_or_low[all_gpios_high_or_low.index(j)][1] = 0 # setting pin in all_gpios_high_or_low low ->0
             elif j[0] == check_pin_[0] and 1 == check_pin_[1]:
 
-                all_gpios_high_or_low[all_gpios_high_or_low.index(j)][1] = 1            
+                all_gpios_high_or_low[all_gpios_high_or_low.index(j)][1] = 1  # setting pin in all_gpios_high_or_low high -> 1          
     return all_gpios_high_or_low
 if __name__ == "__main__":  #only run when the file is direktly excecuted -> testing sensors
     for i in range(0,5):
